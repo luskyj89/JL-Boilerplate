@@ -145,3 +145,128 @@ textarea {
 body {
   -webkit-font-smoothing: antialiased;
 }
+
+.container {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    -webkit-animation: leaver .8s ease-out;
+    -webkit-animation-delay: 8s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes leaver {
+    0% {
+        left: 0px;
+    }
+    100% {
+        left: -900px
+    }
+}
+
+.spinner {
+    position: relative;
+    width: 900px;
+    height: 450px;
+    background-color: #000;
+
+    margin: 0;
+    -webkit-animation: rotateplane 1.5s ease-in-out;
+    border-top: 30px solid #00fa87;
+}
+
+@-webkit-keyframes rotateplane {
+    0% {
+        -webkit-transform: perspective(1000px) rotateY(180deg)  rotateX(180deg);
+        width: 10px;
+        height: 10px;
+    }
+    50% {
+        -webkit-transform: perspective(1000px) rotateY(180deg)
+    }
+    100% {
+        -webkit-transform: perspective(1000px) rotateY(0deg)  rotateX(0deg);
+    }
+}
+
+.fight-night {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    width: 400px;
+    height: 400px;
+    background: url(../img/logo-fightnight.png) no-repeat;
+    background-size: 100%;
+    -webkit-animation: logospinner 1.4s ease-out;
+    -webkit-animation-delay: 1.3s;
+    -webkit-animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes logospinner {
+    0% {
+        -webkit-transform: rotateZ(360deg);
+        opacity: 0;
+        top: -100px;
+        left: -100px;
+    }
+    100% {
+        -webkit-transform: rotateZ(0deg);
+        opacity: 1;
+        top: 25px;
+        left: 25px;
+    }
+}
+
+.tune-in {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 432px;
+    width: 435px;
+    height: 300px;
+    background: url(../img/tune-in.png) no-repeat;
+    -webkit-animation: tuner .8s ease-out;
+    -webkit-animation-delay: 1.9s;
+    -webkit-animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes tuner {
+    0% {
+        opacity: 0;
+        top: -100px;
+    }
+    100% {
+        opacity: 1;
+        top: 10px;
+    }
+}
+
+.smash {
+    display: block;
+    position: absolute;
+    bottom: 25px;
+    left: 432px;
+    width: 311px;
+    height: 168px;
+    background: url(../img/smash.png) no-repeat;
+    -webkit-animation: smash .8s ease-out;
+    -webkit-animation-delay: 1.9s;
+    -webkit-animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes smash {
+    0% {
+        opacity: 0;
+        left: 400px;
+    }
+    100% {
+        opacity: 1;
+        left: 495px;
+    }
+}

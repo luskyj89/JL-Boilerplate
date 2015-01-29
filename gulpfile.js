@@ -2,13 +2,10 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     minifycss = require('gulp-minify-css'),
     uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    del = require('del');
-
+    notify = require('gulp-notify');
+    
 gulp.task('styles', function () {
     gulp.src('_uncompressed/scss/*.scss')
         .pipe(sass({
@@ -29,17 +26,6 @@ gulp.task('scripts', function() {
     .pipe(notify({ message: 'Scripts uglified' }));
 });
 
-gulp.task('images', function() {
-  return gulp.src('_uncompressed/img/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('img/'))
-    .pipe(notify({ message: 'Images squashed' }));
-});
-
-gulp.task('clean', function(cb) {
-    del(['css/', 'img/'], cb)
-});
-
 gulp.task('watch', function() {
 
   // Watch .scss files
@@ -48,11 +34,8 @@ gulp.task('watch', function() {
   // Watch .js files
   gulp.watch('_uncompressed/js/**/*.js', ['scripts']);
 
-  // Watch image files
-  gulp.watch('_uncompressed/img/**/*', ['images']);
-
 });
 
-gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'images');
+gulp.task('default', function() {
+    gulp.start('styles', 'scripts');
 });
